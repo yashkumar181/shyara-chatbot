@@ -33,11 +33,35 @@ const knowledgeBase = {
       price: "₹2,999/month per restaurant",
 
       features: [
+         "QR Menu",
+        "Dietary Filters",
+        "Waiter Cart",
+        "Real-time Sold Out Toggle",
+        "Staff Invites",
         "Everything in Lite",
         "Direct Table Ordering",
         "Pay From Table",
         "Kitchen Display Queue",
         "Revenue Analytics"
+      ]
+    },
+
+    premium: {
+      price: "₹4,999/month per restaurant",
+
+      features: [
+         "QR Menu",
+        "Dietary Filters",
+        "Waiter Cart",
+        "Real-time Sold Out Toggle",
+        "Staff Invites",
+        "Everything in Lite",
+        "Direct Table Ordering",
+        "Pay From Table",
+        "Kitchen Display Queue",
+        "Revenue Analytics", "Peak-hour & trend reports",
+        "Average order value & table-time trends","Menu item popularity & best sellers",
+        "Dish rating insights from diners"
       ]
     }
   },
