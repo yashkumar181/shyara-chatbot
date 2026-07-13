@@ -1,7 +1,6 @@
 const knowledgeBase = {
   company: "Shyara",
   product: "BiteX",
-
   setupTime: "15 minutes",
 
   qr: {
@@ -13,8 +12,9 @@ const knowledgeBase = {
 
   plans: {
     lite: {
-      price: "₹499/month per restaurant",
-
+      name: "Lite Plan",
+      price: "₹499/mo per restaurant",
+      distinction: "Basic QR Menu & Staff Management.",
       features: [
         "QR Menu",
         "Dietary Filters",
@@ -22,22 +22,14 @@ const knowledgeBase = {
         "Real-time Sold Out Toggle",
         "Staff Invites"
       ],
-
-      limits: {
-        tables: 20,
-        items: 100
-      }
+      limits: { tables: 20, items: 100 }
     },
 
     plus: {
-      price: "₹2,999/month per restaurant",
-
+      name: "Plus Plan",
+      price: "₹2,999/mo per restaurant",
+      distinction: "Table Ordering & Payments.",
       features: [
-         "QR Menu",
-        "Dietary Filters",
-        "Waiter Cart",
-        "Real-time Sold Out Toggle",
-        "Staff Invites",
         "Everything in Lite",
         "Direct Table Ordering",
         "Pay From Table",
@@ -47,21 +39,27 @@ const knowledgeBase = {
     },
 
     premium: {
-      price: "₹4,999/month per restaurant",
-
+      name: "Premium Plan (LIVE NOW)",
+      price: "₹4,999/mo per restaurant",
+      distinction: "Deep analytics for growing teams. Know your restaurant by numbers.",
       features: [
-         "QR Menu",
-        "Dietary Filters",
-        "Waiter Cart",
-        "Real-time Sold Out Toggle",
-        "Staff Invites",
-        "Everything in Lite",
-        "Direct Table Ordering",
-        "Pay From Table",
-        "Kitchen Display Queue",
-        "Revenue Analytics", "Peak-hour & trend reports",
-        "Average order value & table-time trends","Menu item popularity & best sellers",
+        "Revenue & order analytics dashboard",
+        "Peak-hour & trend reports",
+        "Average order value & table-time trends",
+        "Menu item popularity & best sellers",
         "Dish rating insights from diners"
+      ]
+    },
+
+    elite: {
+      name: "Elite Plan (COMING SOON)",
+      price: "Pricing announced soon",
+      distinction: "Multiplayer table games & leaderboards. Dining becomes an experience.",
+      features: [
+        "Single & multiplayer games from one QR",
+        "Whole table plays as a team",
+        "Restaurant-wide live leaderboard",
+        "Remove BiteX branding (white-label)"
       ]
     }
   },

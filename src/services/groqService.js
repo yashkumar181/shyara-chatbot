@@ -19,7 +19,7 @@ export const generateResponse = async (messages) => {
 
             temperature: 0.3,
 
-            max_tokens: 200,
+            max_tokens: 400,
 
             frequency_penalty: 0.3,
 

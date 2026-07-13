@@ -2,20 +2,24 @@ import mongoose from 'mongoose';
 
 const leadSchema = new mongoose.Schema({
     ownerName: { 
-        type: String, 
-        default: "Not Provided" 
+         type: String, 
+         default: "Not Provided" 
     },
     whatsappNumber: { 
-        type: String, 
-        required: true 
+         type: String, 
+         required: true 
     },
     restaurantName: { 
-        type: String, 
-        default: "Pending Verification" 
+         type: String, 
+         default: "Pending Verification" 
+    },
+    email: { 
+         type: String, 
+         default: "Not Provided" 
     },
     capturedAt: { 
-        type: Date, 
-        default: Date.now 
+         type: Date, 
+         default: Date.now 
     }
 });
 
