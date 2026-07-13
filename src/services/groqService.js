@@ -13,13 +13,15 @@ export const generateResponse = async (messages) => {
 
         const completion = await groq.chat.completions.create({
 
-            model: "llama-3.1-8b-instant",
+            model: "llama-3.3-70b-versatile",
 
             messages,
 
-            temperature: 0.2,
+            temperature: 0.3,
 
-            max_tokens: 150,
+            max_tokens: 200,
+
+            frequency_penalty: 0.3,
 
         });
 
