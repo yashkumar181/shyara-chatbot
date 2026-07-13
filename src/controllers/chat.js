@@ -20,7 +20,6 @@ export const handleChat = async (req, res) => {
 
         if (extractedNumber) {
             try {
-                // 1. Create a quick prompt asking the AI to extract all details
                 const extractionPrompt = `
                 Extract the owner's name, restaurant name, and email address from this user message.
                 User Message: "${userMessage}"
@@ -29,10 +28,12 @@ export const handleChat = async (req, res) => {
                 Format exactly like this: {"ownerName": "Name", "restaurantName": "Name", "email": "email@example.com"}
                 `;
 
-                // 2. Make a fast secondary call to Groq
-                const extractionReply = await generateResponse([{ role: "user", content: extractionPrompt }]);
+                // ROUTING UPDATE: Use the 8B model just for this extraction task
+                const extractionReply = await generateResponse(
+                    [{ role: "user", content: extractionPrompt }], 
+                    "llama-3.1-8b-instant" 
+                );
                 
-                // 3. Clean the response and parse it
                 const cleanedJson = extractionReply.replace(/```json|```/g, '').trim();
                 let extractedData = {};
                 
@@ -42,7 +43,6 @@ export const handleChat = async (req, res) => {
                     console.error("  Failed to parse AI extraction JSON");
                 }
 
-                // 4. Save everything to MongoDB Atlas
                 await Lead.create({
                     whatsappNumber: extractedNumber[0],
                     ownerName: extractedData.ownerName || "Not Provided",
@@ -57,7 +57,7 @@ export const handleChat = async (req, res) => {
         }
 
         // ==========================================
-        // PERSON A: THE AI BRAIN
+        // PERSON A: THE AI BRAIN (Uses default 70B)
         // ==========================================
         const messages = buildMessages(
             systemPrompt,

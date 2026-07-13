@@ -3,18 +3,16 @@ export const buildMessages = (
     chatHistory = [],
     userMessage
 ) => {
-
-    // Keep only the last 10 messages to reduce token usage
-    const recentHistory = chatHistory.slice(-10);
+    const recentHistory = chatHistory.slice(-6);
+    
+    const minifiedPrompt = systemPrompt.replace(/\s+/g, ' ').trim();
 
     return [
         {
             role: "system",
-            content: systemPrompt
+            content: minifiedPrompt
         },
-
         ...recentHistory,
-
         {
             role: "user",
             content: userMessage
