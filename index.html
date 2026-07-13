@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BiteX AI Prototype</title>
+    
+    <!-- Added Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -59,6 +63,26 @@
             border-bottom-left-radius: 0;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
+        
+        /* --- NEW CSS FOR MARKDOWN FORMATTING --- */
+        .bot-msg p {
+            margin: 0 0 8px 0; /* Removes huge default paragraph gaps */
+        }
+        .bot-msg p:last-child {
+            margin-bottom: 0;
+        }
+        .bot-msg strong {
+            color: #000; /* Makes the bold text pop */
+        }
+        .bot-msg ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        .bot-msg li {
+            margin-bottom: 4px;
+        }
+        /* --------------------------------------- */
+
         #input-area {
             display: flex;
             padding: 10px;
@@ -156,11 +180,19 @@
     function appendMessage(text, className) {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${className}`;
-        msgDiv.innerText = text;
         
         // Generate a unique ID if it's the typing indicator so we can delete it easily
         if (className.includes('typing')) {
             msgDiv.id = 'typing-' + Date.now();
+            msgDiv.innerText = text;
+        } 
+        // CRITICAL FIX: Only parse Markdown for actual bot replies
+        else if (className.includes('bot-msg')) {
+            msgDiv.innerHTML = marked.parse(text);
+        } 
+        // Keep user messages as plain text for safety and correct formatting
+        else {
+            msgDiv.innerText = text;
         }
         
         chatBox.appendChild(msgDiv);

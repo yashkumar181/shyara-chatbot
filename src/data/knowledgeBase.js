@@ -13,6 +13,7 @@ const knowledgeBase = {
   plans: {
     lite: {
       name: "Lite Plan",
+      status: "LIVE NOW",
       price: "₹499/mo per restaurant",
       distinction: "Basic QR Menu & Staff Management.",
       features: [
@@ -27,6 +28,7 @@ const knowledgeBase = {
 
     plus: {
       name: "Plus Plan",
+      status: "LIVE NOW",
       price: "₹2,999/mo per restaurant",
       distinction: "Table Ordering & Payments.",
       features: [
@@ -39,7 +41,8 @@ const knowledgeBase = {
     },
 
     premium: {
-      name: "Premium Plan (LIVE NOW)",
+      name: "Premium Plan",
+      status: "LIVE NOW",
       price: "₹4,999/mo per restaurant",
       distinction: "Deep analytics for growing teams. Know your restaurant by numbers.",
       features: [
@@ -52,7 +55,8 @@ const knowledgeBase = {
     },
 
     elite: {
-      name: "Elite Plan (COMING SOON)",
+      name: "Elite Plan",
+      status: "COMING SOON",
       price: "Pricing announced soon",
       distinction: "Multiplayer table games & leaderboards. Dining becomes an experience.",
       features: [
